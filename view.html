@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>风景揽胜</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-image: url(images/v-bgvg.jpg);
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .top .ele {
+            float: left;
+        }
+
+        .top {
+            background: rgba(235, 234, 231, 0.5);
+            height: 60px;
+        }
+
+        .top .nav {
+            float: left;
+            height: 60px;
+            margin-left: 575px;
+        }
+
+        .top .nav ul li {
+            float: left;
+            line-height: 60px;
+        }
+
+        .top .nav ul li a {
+            display: inline-block;
+            padding: 0 20px;
+            font-size: 18px;
+            color: rgb(14, 13, 13);
+            text-decoration: none;
+            font-family: Microsoft YaHei;
+        }
+
+        .top .nav ul li a:hover {
+            background-color: rgba(254, 254, 254, 0.5);
+        }
+
+        .box {
+            position: relative;
+            width: 900px;
+            height: 750px;
+            background: rgba(0, 0, 0, 0.5);
+            margin: 50px auto;
+        }
+
+        .box img {
+            width: 900px;
+            height: 528px;
+        }
+
+        .tx {
+            font-family: Microsoft YaHei;
+            height: 165px;
+        }
+
+        h4 {
+            color: #fff;
+            margin-left: 20px;
+            font-size: 25px;
+        }
+
+        .tx p {
+            color: #fff;
+            margin: 10px 20px;
+            font-size: 18px;
+        }
+
+        .dot {
+            margin-top: 5px;
+            margin-left: 275px;
+        }
+
+        .dot li {
+            float: left;
+            border-width: 1px;
+            border-color: white;
+            border-style: solid;
+            width: 40px;
+            height: 10px;
+            margin: 10px;
+        }
+
+        .dot .active {
+            background-color: #fff;
+        }
+
+        .switch {
+            display: none;
+            width: 50px;
+            height: 100px;
+            background-color: rgba(0, 0, 0, 0.4);
+            position: absolute;
+            line-height: 100px;
+        }
+
+        .arrow {
+            color: #fff;
+            margin-left: 15px;
+            font-size: 25px;
+        }
+
+        .switch:hover {
+            background-color: rgba(125, 117, 117, 0.5);
+        }
+
+        .left {
+            left: 0;
+            top: 50%;
+        }
+
+        .right {
+            right: 0;
+            top: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <div class="ele">
+            <img src="images/ele.png" height="60px" />
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="door.html">首页</a></li>
+                <li><a href="character.html">群英志</a></li>
+                <li><a href="view.html">风景揽胜</a></li>
+                <li><a href="#">地势略图</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="box">
+        <img src="images/v-harbor.png" alt="">
+        <div class="tx">
+            <h4>璃月港</h4>
+            <p>港口的建立为璃月的海上贸易打下了最初的基础。作为提瓦特大陆上最大的集贸港口，其货物吞吐量也绝非一般港口可比拟。</br>
+                每年海灯节时，在港口处可以看到海上万千宵灯飞入夜幕，是到访璃月不可错过的奇景。</p>
+
+        </div>
+        <ul class="dot">
+            <li class="bt active"></li>
+            <li class="bt"></li>
+            <li class="bt"></li>
+            <li class="bt"></li>
+            <li class="bt"></li>
+            <li class="bt"></li>
+        </ul>
+        <div class="left switch">
+            <p class="arrow">&lt;</p>
+        </div>
+        <div class="right switch">
+            <p class="arrow">&gt;</p>
+        </div>
+    </div>
+
+    <script>
+        const data = [
+            { url: 'images/v-harbor.png', title: '璃月港', desc: '港口的建立为璃月的海上贸易打下了最初的基础。作为提瓦特大陆上最大的集贸港口，其货物吞吐量也绝非一般港口可比拟。</br>每年海灯节时，在港口处可以看到海上万千宵灯飞入夜幕，是到访璃月不可错过的奇景。' },
+            { url: 'images/v-tianheng.jpg', title: '天衡山', desc: '璃月港西边的山脉，也是抵御外敌的一道天然保护屏障。</br>有记载以来，作为璃月的壁垒经历了数不清的大小战争，因此也可以看到不少古城墙、堡垒和防御工事的遗迹。</br>传说中璃月人最早的采矿作业亦在此处进行。' },
+            { url: 'images/v-dihua.jpg', title: '荻花洲', desc: '荻花洲得名于浅滩中大面积生长的荻花，是璃月北部的一处天然浅滩湿地。</br>水泽遍布、河网交错纵横，由多样的动植物群落组成了丰富的生态系统，也构成了来往旅客眼中绝佳的景观。</br>同时，荻花洲也是陆路从蒙德通往璃月的必经要道，因此时常有商队在此歇脚。建在河滩深处的望舒客栈是这里的标志性建筑。' },
+            { url: 'images/v-wangshu.jpg', title: '望舒客栈', desc: '荻花洲的地标，修建在一座巨大岩柱上的客栈。</br>来歇息的大多是途径此处的商贩，客栈也因此提供了直接贸易和摆摊的场所。高层位置视野极佳，天气晴朗时可以直接看到远处的轻策山和绝云间。</br>坊间有传说道，在高耸的客栈中，传承着某种神秘的使命。但传言止步于此，从未有人能证实它的真伪。' },
+            { url: 'images/v-qingce.jpg', title: '轻策庄', desc: '坐落于璃月最北部，隐藏在山丘与竹林间的村落。</br>白云缭绕的山谷间点缀着鳞次栉比的半月形梯田，山风吹拂时可以看见一层层多彩的波浪。在这个宛如世外桃源的地方，轻策庄的村民过着质朴而又充实的生活。' },
+            { url: 'images/v-jueyun.jpg', title: '绝云间', desc: '璃月西北部常年云雾缭绕、渺无人烟的峻岭。</br>山间有奇景，但由于地势复杂、山路陡峭而鲜有人迹，传闻中是守护璃月的仙人们的隐居之处。也因此受到部分求仙祈福之人的追捧。</br>鉴于其间的凶险不宜外人靠近，最好还是站在望舒客栈远观吧。' }
+        ]
+        const img = document.querySelector('.box img')
+        const h = document.querySelector('.box h4')
+        const p = document.querySelector('.box p')
+        const right = document.querySelector('.right')
+        let i = 0
+
+        right.addEventListener('click', function () {
+            i++
+            i = i >= data.length ? 0 : i
+            toggle()
+        })
+
+        const left = document.querySelector('.left')
+        left.addEventListener('click', function () {
+            i--
+            i = i < 0 ? data.length - 1 : i
+            toggle()
+        })
+
+        function toggle() {
+            img.src = data[i].url
+            h.innerHTML = data[i].title
+            p.innerHTML = data[i].desc
+            document.querySelector('.dot .active').classList.remove('active')
+            document.querySelector(`.dot li:nth-child(${i + 1})`).classList.add('active')
+        }
+
+        let n = setInterval(function () {
+            right.click()
+        }, 3000)
+
+        const box = document.querySelector('.box')
+        const lft = document.querySelector('.left')
+        const rit = document.querySelector('.right')
+        box.addEventListener('mouseenter', function () {
+            clearInterval(n)
+            lft.style.display = 'block'
+            rit.style.display = 'block'
+        })
+
+        box.addEventListener('mouseleave', function () {
+            clearInterval(n)
+            n = setInterval(function () {
+                right.click()
+            }, 3000)
+            lft.style.display = 'none'
+            rit.style.display = 'none'
+        })
+
+        const lis = document.querySelectorAll('.bt')
+        lis.forEach((bt, j) => {
+            bt.addEventListener('click', function () {
+                img.src = data[j].url
+                h.innerHTML = data[j].title
+                p.innerHTML = data[j].desc
+                document.querySelector('.dot .active').classList.remove('active')
+                document.querySelector(`.dot li:nth-child(${j + 1})`).classList.add('active')
+                i = j
+                clearInterval(n)
+                n = setInterval(function () {
+                    right.click()
+                }, 3000)
+            })
+        })
+    </script>
+</body>
+
+</html>
