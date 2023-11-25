@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地势略图</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-image: url(images/night-v.jpg);
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .top .ele {
+            float: left;
+        }
+
+        .top {
+            background: rgba(235, 234, 231, 0.5);
+            height: 60px;
+            position: fixed;
+            width: 100%;
+            z-index: 99;
+            top: 0;
+        }
+
+        .top .nav {
+            float: left;
+            height: 60px;
+            margin-left: 575px;
+        }
+
+        .top .nav ul li {
+            float: left;
+            line-height: 60px;
+        }
+
+        .top .nav ul li a {
+            display: inline-block;
+            padding: 0 20px;
+            font-size: 18px;
+            color: rgb(14, 13, 13);
+            text-decoration: none;
+            font-family: Microsoft YaHei;
+        }
+
+        .top .nav ul li a:hover {
+            background-color: rgba(254, 254, 254, 0.5);
+        }
+
+        .map {
+            height: 700px;
+            width: 700px;
+            margin: 160px auto;
+            position: relative;
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+
+        .map img {
+            height: 700px;
+            width: 700px;
+        }
+
+        .mirror {
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            top: 0;
+            left: 0;
+            display: none;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 5px solid rgba(235, 234, 231, 0.5);
+        }
+
+        .mirror img {
+            height: 2100px;
+            width: 2100px;
+            position: absolute;
+        }
+
+        .ad {
+            position: fixed;
+            top: 30%;
+            height: 500px;
+            width: 200px;
+            background: rgb(67, 36, 11);
+            border: 10px solid;
+            border-color: red;
+            display: block;
+        }
+
+        .ad p {
+            color: #fff;
+            font-size: 50px;
+            margin: 0 60px;
+        }
+
+        .zuo {
+            left: -10px;
+        }
+
+        .zuo p {
+            margin-top: 10px;
+        }
+
+        .you p {
+            margin-top: 80px;
+        }
+
+        .you {
+            right: -10px;
+        }
+
+        .leftclose {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.5);
+            top: 10px;
+            right: 10px;
+            padding: 0 10px;
+            color: #fff;
+        }
+
+        .rightclose {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.5);
+            top: 10px;
+            left: 10px;
+            padding: 0 10px;
+            color: #fff;
+        }
+
+        .leftclose:hover,
+        .rightclose:hover {
+            background: rgba(125, 117, 117, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <div class="ele">
+            <img src="images/ele.png" height="60px" />
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="door.html">首页</a></li>
+                <li><a href="character.html">群英志</a></li>
+                <li><a href="view.html">风景揽胜</a></li>
+                <li><a href="map.html">地势略图</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="map">
+        <img src="images/map.jpg" alt="">
+        <div class="mirror">
+            <img src="images/map.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="ad zuo">
+        <p>往生堂年末大促</p>
+        <div class="leftclose">X</div>
+    </div>
+    <div class="ad you">
+        <p>第二位半价</p>
+        <div class="rightclose">X</div>
+    </div>
+
+    <script>
+        const mirror = document.querySelector('.mirror')
+        const box = document.querySelector('.map')
+        const big = document.querySelector('.mirror img')
+        box.addEventListener('mouseenter', function () {
+            mirror.style.display = 'block'
+        })
+
+        box.addEventListener('mouseleave', function () {
+            mirror.style.display = 'none'
+        })
+
+        box.addEventListener('mousemove', function (e) {
+            let x = e.pageX - box.getBoundingClientRect().left - 100
+            let y = e.pageY - box.getBoundingClientRect().top - document.documentElement.scrollTop - 100
+            mirror.style.left = x + 'px'
+            mirror.style.top = y + 'px'
+            big.style.left = -3 * (x + 100) + 100 + 'px'
+            big.style.top = -3 * (y + 100) + 100 + 'px'
+        })
+
+        const zuo = document.querySelector('.zuo')
+        const you = document.querySelector('.you')
+        const leftclose = document.querySelector('.leftclose')
+        const rightclose = document.querySelector('.rightclose')
+        setInterval(function () {
+            if (zuo.style.borderColor === 'red') {
+                zuo.style.borderColor = 'blue'
+                you.style.borderColor = 'blue'
+            }
+            else {
+                zuo.style.borderColor = 'red'
+                you.style.borderColor = 'red'
+            }
+
+        }, 300)
+
+        leftclose.addEventListener('click', function () {
+            zuo.style.display = 'none'
+            you.style.display = 'none'
+        })
+
+        rightclose.addEventListener('click', function () {
+            zuo.style.display = 'none'
+            you.style.display = 'none'
+        })
+    </script>
+</body>
+
+</html>

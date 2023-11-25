@@ -80,6 +80,68 @@
             text-indent: 2em;
             font-family: Microsoft YaHei;
         }
+
+        .login {
+            float: right;
+            margin-right: 50px;
+            padding: 0 20px;
+        }
+
+        .pic {
+            float: right;
+            margin-top: 15px;
+            height: 30px;
+            width: 30px;
+        }
+
+        .login p {
+            float: right;
+            line-height: 60px;
+            margin-left: 10px;
+        }
+
+        .login:hover {
+            background-color: rgb(250, 186, 158)
+        }
+
+        .big {
+            top: 0;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+            margin: 250px auto;
+            width: 400px;
+            height: 500px;
+            background: #fff;
+            border-radius: 20px;
+        }
+
+        .close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            padding: 0 5px;
+            color: darkgray;
+        }
+
+        .close:hover {
+            background-color: rgba(125, 117, 117, 0.5);
+        }
+
+        .seclogo {
+            position: absolute;
+            left: 111px;
+            top: 50px;
+            height: 100px;
+            width: 178px;
+        }
     </style>
 </head>
 
@@ -93,25 +155,54 @@
                 <li><a href="door.html">首页</a></li>
                 <li><a href="character.html">群英志</a></li>
                 <li><a href="view.html">风景揽胜</a></li>
-                <li><a href="#">地势略图</a></li>
+                <li><a href="map.html">地势略图</a></li>
             </ul>
+        </div>
+        <div class="login">
+            <p>
+                旅行认证
+            </p>
+            <div class="pic">
+                <img src="images/head.png" alt="">
+            </div>
         </div>
     </div>
 
     <div class="title">
         <h1>提瓦特旅游指南——璃月篇</h1>
     </div>
+
     <div class="logo">
         <img src="images/biao.png" width="500" />
     </div>
+
     <div class="tx">
         <p>璃月位于提瓦特大陆东方，国土面积广大，物产丰富，幅员辽阔，地形及气候类型复杂多样。有着被称为贸易之都的璃月港。傲然矗立的山麓与石林、广袤的平原与生机勃勃的河滩共同构成了璃月的丰富地貌，在四季分明的气候下焕发出多彩的风华，也是魔神战争最激烈的地方。山石奇景间，埋藏着无尽的岩之魔神的古老馈赠等待着人们发掘……
         </p>
     </div>
-    <!-- <img src="images/map.jpg" alt="璃月地图" title="璃月地图" width="500" />
-    <p>这是第一段</p>
-    <p>这是第二段</p>
-    <a href="https:/yuanshen.com" target="_blank"><img src="images/biao.png" title="请访问官网了解更多资讯" width="100"></a> -->
+
+    <div class="big">
+        <div class="small">
+            <div class="close">X</div>
+            <div class="seclogo">
+                <img src="images/biao.png" alt="" height="100">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const user = document.querySelector('.login')
+        const big = document.querySelector('.big')
+        user.addEventListener('click', function () {
+            big.style.display = 'block'
+        })
+
+        const close = document.querySelector('.close')
+        close.addEventListener('click', function () {
+            big.style.display = 'none'
+        })
+    </script>
+
 </body>
 
 </html>
