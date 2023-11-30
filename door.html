@@ -80,12 +80,23 @@
             text-indent: 2em;
             font-family: Microsoft YaHei;
         }
-<<<<<<< HEAD
 
         .login {
             float: right;
-            margin-right: 50px;
+            margin-right: 20px;
             padding: 0 20px;
+            pointer-events: auto;
+        }
+
+        .exit {
+            float: right;
+            padding: 0 20px;
+            margin-right: 30px;
+            display: none;
+        }
+
+        .exit p {
+            line-height: 60px;
         }
 
         .pic {
@@ -101,7 +112,8 @@
             margin-left: 10px;
         }
 
-        .login:hover {
+        .login:hover,
+        .exit:hover {
             background-color: rgb(250, 186, 158)
         }
 
@@ -139,12 +151,91 @@
         .seclogo {
             position: absolute;
             left: 111px;
-            top: 50px;
+            top: 40px;
             height: 100px;
             width: 178px;
         }
-=======
->>>>>>> refs/remotes/origin/main
+
+        .type {
+            position: absolute;
+            top: 160px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .line {
+            position: absolute;
+            left: 0px;
+            height: 2px;
+            width: 50px;
+            background: #d3bc8e;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .ewm {
+            margin-left: 60px;
+            color: grey;
+            font-weight: 400;
+        }
+
+        .id {
+            font-weight: 700;
+            color: #000;
+        }
+
+        form {
+            position: absolute;
+            top: 280px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block;
+        }
+
+        .ewmpic {
+            position: absolute;
+            top: 320px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            display: none;
+        }
+
+        input {
+            width: 270px;
+            height: 25px;
+            margin: 12px;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 0 0 2px #e3e5eb;
+            border: none;
+            outline: none;
+        }
+
+        input:hover,
+        input:focus {
+            box-shadow: 0 0 0 2px #d3bc8e;
+        }
+
+        button {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: 40px;
+            height: 40px;
+            width: 290px;
+            color: gray;
+            background: #f1f0f5;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            letter-spacing: 10px;
+            pointer-events: none;
+        }
+
+        button:hover {
+            background: #4d4f53;
+        }
     </style>
 </head>
 
@@ -158,9 +249,11 @@
                 <li><a href="door.html">首页</a></li>
                 <li><a href="character.html">群英志</a></li>
                 <li><a href="view.html">风景揽胜</a></li>
-<<<<<<< HEAD
                 <li><a href="map.html">地势略图</a></li>
             </ul>
+        </div>
+        <div class="exit">
+            <p>退出登录</p>
         </div>
         <div class="login">
             <p>
@@ -170,38 +263,45 @@
                 <img src="images/head.png" alt="">
             </div>
         </div>
-=======
-                <li><a href="#">地势略图</a></li>
-            </ul>
-        </div>
->>>>>>> refs/remotes/origin/main
     </div>
 
     <div class="title">
         <h1>提瓦特旅游指南——璃月篇</h1>
     </div>
-<<<<<<< HEAD
 
     <div class="logo">
         <img src="images/biao.png" width="500" />
     </div>
 
-=======
-    <div class="logo">
-        <img src="images/biao.png" width="500" />
-    </div>
->>>>>>> refs/remotes/origin/main
     <div class="tx">
         <p>璃月位于提瓦特大陆东方，国土面积广大，物产丰富，幅员辽阔，地形及气候类型复杂多样。有着被称为贸易之都的璃月港。傲然矗立的山麓与石林、广袤的平原与生机勃勃的河滩共同构成了璃月的丰富地貌，在四季分明的气候下焕发出多彩的风华，也是魔神战争最激烈的地方。山石奇景间，埋藏着无尽的岩之魔神的古老馈赠等待着人们发掘……
         </p>
     </div>
-<<<<<<< HEAD
 
     <div class="big">
         <div class="small">
             <div class="close">X</div>
             <div class="seclogo">
                 <img src="images/biao.png" alt="" height="100">
+            </div>
+            <div class="type">
+                <span class="id">ID登录</span>
+                <span class="ewm">二维码登录</span>
+                <div class="line"></div>
+            </div>
+            <form action="">
+                <div class="name">
+                    <input type="text" placeholder="用户名" name="uname" id="">
+                </div>
+                <div class="uid">
+                    <input type="text" placeholder="UID" name="userid" id="">
+                </div>
+                <button type="submit">
+                    登录
+                </button>
+            </form>
+            <div class="ewmpic">
+                <img src="images/ewm.jpg" alt="" width="200">
             </div>
         </div>
     </div>
@@ -217,14 +317,82 @@
         close.addEventListener('click', function () {
             big.style.display = 'none'
         })
+
+        const id = document.querySelector('.id')
+        const ewm = document.querySelector('.ewm')
+        const line = document.querySelector('.line')
+        const form = document.querySelector('form')
+        const ewmpic = document.querySelector('.ewmpic')
+        id.addEventListener('click', function () {
+            id.style.fontWeight = 700
+            id.style.color = '#000'
+            ewm.style.fontWeight = 400
+            ewm.style.color = 'grey'
+            line.style.left = 0
+            form.style.display = 'block'
+            ewmpic.style.display = 'none'
+        })
+
+        ewm.addEventListener('click', function () {
+            ewm.style.color = '#000'
+            ewm.style.fontWeight = 700
+            id.style.fontWeight = 400
+            id.style.color = 'grey'
+            line.style.left = '130px'
+            form.style.display = 'none'
+            ewmpic.style.display = 'block'
+        })
+
+        const name = document.querySelector('[name=uname]')
+        const uid = document.querySelector('[name=userid]')
+        const button = document.querySelector('button')
+        name.addEventListener('input', function () {
+            uid.addEventListener('input', function () {
+                if (name.value !== '' && uid.value !== '') {
+                    button.style.pointerEvents = 'auto'
+                    button.style.background = '#393b40'
+                    button.style.color = '#d3bc8e'
+                }
+            })
+        })
+
+        uid.addEventListener('input', function () {
+            name.addEventListener('input', function () {
+                if (name.value !== '' && uid.value !== '') {
+                    button.style.pointerEvents = 'auto'
+                    button.style.background = '#393b40'
+                    button.style.color = '#d3bc8e'
+                }
+            })
+        })
+
+        form.addEventListener('submit', function () {
+            localStorage.setItem('uname', name.value)
+            console.log(name.value)
+        })
+
+        const logtx = document.querySelector('.login p')
+        const exit = document.querySelector('.exit')
+        function render() {
+            const un = localStorage.getItem('uname')
+            if (un) {
+                logtx.innerHTML = `${un}`
+                exit.style.display = 'block'
+                user.style.pointerEvents = 'none'
+            } else {
+                logtx.innerHTML = '旅行认证'
+                exit.style.display = 'none'
+                user.style.pointerEvents = 'auto'
+            }
+        }
+        render()
+
+        exit.addEventListener('click', function () {
+            localStorage.removeItem('uname')
+            render()
+        })
     </script>
 
-=======
-    <!-- <img src="images/map.jpg" alt="璃月地图" title="璃月地图" width="500" />
-    <p>这是第一段</p>
-    <p>这是第二段</p>
-    <a href="https:/yuanshen.com" target="_blank"><img src="images/biao.png" title="请访问官网了解更多资讯" width="100"></a> -->
->>>>>>> refs/remotes/origin/main
 </body>
 
 </html>
