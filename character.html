@@ -205,7 +205,11 @@
 
         const back = document.querySelector('.backtop')
         back.addEventListener('click', function () {
-            document.documentElement.scrollTop = 0
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            })
+
         })
     </script>
 

@@ -305,7 +305,7 @@
         <div class="leftclose">X</div>
     </div>
     <div class="ad you">
-        <p>第二位半价</p>
+        <p>第二碑半价</p>
         <div class="rightclose">X</div>
     </div>
 
@@ -320,8 +320,8 @@
         <ul class="con">
             <li>
                 <h4 class="ming">提瓦特第一深情</h4>
-                <p class="nei">孤云阁山脚宝箱记得拿</p>
-                <p class="ri">2023/3/3 11:45:14</p>
+                <p class="nei">原始人，启洞！</p>
+                <p class="ri">2023/9/9 9:01:02</p>
                 <div class="zan"><i class="iconfont icon-testzan"></i>
                     <p>0</p>
                 </div>
@@ -337,7 +337,7 @@
             <li>
                 <h4 class="ming">argenti</h4>
                 <p class="nei">纯美，永驻</p>
-                <p class="ri">2023/9/9 9:01:02</p>
+                <p class="ri">2023/3/3 11:45:14</p>
                 <div class="zan"><i class="iconfont icon-testzan"></i>
                     <p>0</p>
                 </div>
@@ -420,8 +420,12 @@
             }
         })
 
+        localStorage.setItem('cmt1', 1)
+        localStorage.setItem('cmt2', 1)
+        localStorage.setItem('cmt3', 1)
+
         const ul = document.querySelector('.con')
-        let i = 1
+        let i = 4
         while (localStorage.getItem(`cmt${i}`)) {
             const li = document.createElement('li')
             li.innerHTML = localStorage.getItem(`cmt${i}`)
@@ -433,6 +437,19 @@
         const zan = document.querySelectorAll('.zan')
         const n = document.querySelectorAll('.zan p')
         const tip = document.querySelector('.tip')
+
+        let x = 0
+        while (localStorage.getItem(`cmt${x + 1}`)) {
+            if (localStorage.getItem(`zan${x}`)) {
+                icon[x].style.color = 'blue'
+                n[x].innerHTML = 1
+            } else {
+                icon[x].style.color = 'black'
+                n[x].innerHTML = 0
+            }
+            x++
+        }
+
         btn.addEventListener('click', function () {
             if (tx.value === '') {
                 tip.style.display = 'block'
@@ -465,19 +482,25 @@
 
         function dianzan() {
             for (let j = 0; j < zan.length; j++) {
-                icon[j].style.color = 'black'
                 zan[j].addEventListener('click', function () {
                     if (icon[j].style.color === 'black') {
                         icon[j].style.color = 'blue'
                         n[j].innerHTML = 1
+                        localStorage.setItem(`zan${j}`, 1)
                     } else {
                         icon[j].style.color = 'black'
                         n[j].innerHTML = 0
+                        if (localStorage.getItem(`zan${j}`)) {
+                            localStorage.removeItem(`zan${j}`)
+                        }
                     }
                 })
             }
         }
         dianzan()
+
+
+
     </script>
 </body>
 
